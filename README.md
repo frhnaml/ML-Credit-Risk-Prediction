@@ -259,8 +259,7 @@ Accuracy: 0.91
 Training Curves:
 | Accuracy Curves| Loss Curve | 
 |----------------|------------|
-|![Contoh Prediksi6](src/project-uas/assets/train&val-acc-mlp.png) |
-![MLP Loss Curve](src/project-uas/assets/train&val-loss-mlp.png)
+|![Contoh Prediksi6](src/project-uas/assets/train&val-acc-mlp.png) | ![MLP Loss Curve](src/project-uas/assets/train&val-loss-mlp.png)|
 
 
 #### Analisis Evaluasi Model MLP
@@ -276,8 +275,7 @@ Accuracy: 0.92
 Training Curves:
 | Accuracy Curves| Loss Curve | 
 |----------------|------------|
-|![Contoh Prediksi6](src/project-uas/assets/train&val-acc-tabnet.png) | 
-![Contoh Prediksi6](src/project-uas/assets/train&val-loss-tabnet.png)
+|![Contoh Prediksi6](src/project-uas/assets/train&val-acc-tabnet.png) | ![Contoh Prediksi6](src/project-uas/assets/train&val-loss-tabnet.png)|
 
 <!-- ![TabNet Accuracy Curve](src/project-uas/assets/train&val-acc-tabnet.png)
 ![TabNet Loss Curve](src/project-uas/assets/train&val-loss-tabnet.png) -->
@@ -297,8 +295,7 @@ ROC-AUC: 0.92
 Training Curves:
 | Accuracy Curves| Loss Curve | 
 |----------------|------------|
-|![FT-Transformer Accuracy Curve](src/project-uas/assets/train&val-acc-fttransformer.png) |
-![FT-Transformer Loss Curve](src/project-uas/assets/train&val-loss-fttransformer.png)
+|![FT-Transformer Accuracy Curve](src/project-uas/assets/train&val-acc-fttransformer.png) |![FT-Transformer Loss Curve](src/project-uas/assets/train&val-loss-fttransformer.png)|
 
 #### Analisis Evaluasi Model FT-Transformer
 FT-Transformer merupakan model dengan performa terbaik di antara ketiga model yang diuji. Model ini mencapai accuracy tertinggi (0.93) serta ROC-AUC sebesar 0.92, yang menandakan kemampuan diskriminatif yang sangat baik antara kelas Default dan No Default. Precision untuk kelas Default mencapai 0.96, sementara recall meningkat menjadi 0.71, menghasilkan F1-score tertinggi (0.82) untuk kelas default.
@@ -390,4 +387,11 @@ not yet
 - **Dataset**: [Google Drive – Flower Dataset](https://drive.google.com/file/d/1fyfnK8xgmEpNbaVqJ8lu3EurKSrYfDZ1/view?usp=sharing)
 - **Model**: [Google Drive – Trained Models](https://drive.google.com/drive/folders/1gsIc70cST92o2unsZykUbAfX7zN-ZT-F?usp=sharing)
 - **Google Colab Hasil Training**: [Colab Notebook](https://colab.research.google.com/drive/1fQtxsq8T7yujCDGG2upZ1F2WedA7BErj?usp=sharing)
+
+---
+
+# 👤 Author 
+Achmal Farhan Ashidiqy  
+🎓 Informatics Engineering  
+📍 Muhammadiyah University of Malang  
 
