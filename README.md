@@ -26,7 +26,7 @@ Sebagai tahap akhir, seluruh model yang telah dilatih diintegrasikan ke dalam ap
 - Menyajikan hasil prediksi dalam bentuk sistem website yang dapat dijalankan secara lokal
 
 ## Struktur Repository
-
+```
 UAP/
 │
 ├── .venv/
@@ -62,6 +62,7 @@ UAP/
 │       │
 │       └── utils/
 │           ├── load_css.py
+```
 
 ## Dataset
 
