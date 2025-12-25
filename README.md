@@ -221,7 +221,7 @@ Accuracy: 0.91
 
 
 Plot Evaluasi:
-![MLP Accuracy Curve](src/project-uas/assets/train&val-acc-mlp.png.png)
+![Contoh Prediksi6](src/project-uas/assets/train&val-acc-mlp.png)
 ![MLP Loss Curve](src/project-uas/assets/train&val-loss-mlp.png)
 
 #### Analisis Evaluasi Model MLP
@@ -235,8 +235,10 @@ Accuracy: 0.92
 |   1   |   0.95    |  0.68  |   0.79   |
 
 Plot Evaluasi:
-![TabNet Accuracy Curve](src/project-uas/assets/train&val-acc-tabnet.png)
-![TabNet Loss Curve](src/project-uas/assets/train&val-loss-tabnet.png)
+![Contoh Prediksi6](src/project-uas/assets/train&val-acc-tabnet.png)
+![Contoh Prediksi6](src/project-uas/assets/train&val-loss-tabnet.png)
+<!-- ![TabNet Accuracy Curve](src/project-uas/assets/train&val-acc-tabnet.png)
+![TabNet Loss Curve](src/project-uas/assets/train&val-loss-tabnet.png) -->
 
 #### Analisis Evaluasi Model TabNet
 TabNet memberikan peningkatan performa dibandingkan MLP dengan accuracy 0.92. Model ini mempertahankan performa yang sangat baik pada kelas No Default (recall 0.99) sekaligus meningkatkan precision pada kelas Default hingga 0.95. Artinya, ketika TabNet memprediksi Default, prediksi tersebut lebih dapat dipercaya. Namun, recall kelas Default masih berada di angka 0.68, yang menunjukkan bahwa meskipun prediksi lebih presisi, sebagian kasus gagal bayar masih belum sepenuhnya terdeteksi.
@@ -256,3 +258,54 @@ Plot Evaluasi:
 
 #### Analisis Evaluasi Model FT-Transformer
 FT-Transformer merupakan model dengan performa terbaik di antara ketiga model yang diuji. Model ini mencapai accuracy tertinggi (0.93) serta ROC-AUC sebesar 0.92, yang menandakan kemampuan diskriminatif yang sangat baik antara kelas Default dan No Default. Precision untuk kelas Default mencapai 0.96, sementara recall meningkat menjadi 0.71, menghasilkan F1-score tertinggi (0.82) untuk kelas default.
+
+## Panduan Menjalankan Sistem Website Secara Lokal
+Aplikasi web ini menggunakan Streamlit sebagai antarmuka interaktif untuk melakukan prediksi risiko kredit berdasarkan data input pengguna. Sistem akan memproses data dan menampilkan hasil prediksi menggunakan model Machine Learning terbaik yang telah dilatih.
+
+### Prasyarat
+Pastikan lingkungan Anda telah memenuhi persyaratan berikut:
+- Python 3.8+ sudah terinstall
+- VS Code dengan PowerShell terminal
+- Akses ke model yang telah disimpan (models/), pastikan file model tersedia dan path 
+
+### Langkah Instalasi dan Menjalankan Aplikasi
+1. Install PDM (Package Manager)
+- Buka terminal PowerShell di VS Code
+- Jalankan perintah berikut:
+```
+Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py -UseBasicParsing | python -
+```
+- Setelah instalasi, output akan menampilkan path seperti - C:\Users\<username>\AppData\Roaming\Python\Scripts.
+- Copy path tersebut.
+- Buka Advanced System Settings > Environment Variables > User Variables > New, paste path, lalu restart terminal/VS Code.
+
+2. Inisialisasi Proyek
+- Di root folder UAP/, jalankan: pdm init.
+- Lengkapi prompt terminal (nama proyek: "project-uas", dll.).
+
+3. Install Dependencies untuk Streamlit App:
+- Pindah ke folder: cd UAP/project-uas.
+- Aktifkan virtual environment: .venv\Scripts\Activate.ps1 (untuk PowerShell; gunakan source .venv/bin activate untuk bash/Linux/Mac).
+- Jalankan: pip install -r requirements.txt (ini akan install Streamlit, TensorFlow, dll.).
+
+4. Jalankan Aplikasi
+- Di folder UAP/streamlit-app, jalankan: streamlit run app.py
+- Tunggu hingga browser terbuka otomatis di http://localhost:... (atau buka manual).
+
+5. Cara Penggunaan
+- Masukkan data peminjam melalui form yang tersedia
+- Pilih model prediksi yang ingin digunakan (MLP, TabNet, atau FT-Transformer)
+- Klik tombol Predict
+
+Sistem akan menampilkan:
+- Hasil prediksi (Default / No Default)
+- Probabilitas risiko
+- Interpretasi hasil prediksi
+
+## Dasboard Streamlit Prediksi
+![Contoh Prediksi1](src/project-uas/assets/dasboard-prediction.png)
+![Contoh Prediksi2](src/project-uas/assets/dasboard-prediction2.png)
+![Contoh Prediksi3](src/project-uas/assets/dasboard-prediction3.png)
+![Contoh Prediksi4](src/project-uas/assets/dasboard-prediction4.png)
+![Contoh Prediksi5](src/project-uas/assets/dasboard-prediction5.png)
+
