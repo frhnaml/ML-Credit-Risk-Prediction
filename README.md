@@ -251,8 +251,8 @@ ROC-AUC: 0.92
 |   1   |   0.96    |  0.71  |   0.82   |
 
 Plot Evaluasi:
-![MLP Accuracy Curve](src/project-uas/assets/train&val-acc-fttransformer.png)
-![MLP Loss Curve](src/project-uas/assets/train&val-loss-fttransformer.png)
+![FT-Transformer Accuracy Curve](src/project-uas/assets/train&val-acc-fttransformer.png)
+![FT-Transformer Loss Curve](src/project-uas/assets/train&val-loss-fttransformer.png)
 
 #### Analisis Evaluasi Model FT-Transformer
 FT-Transformer merupakan model dengan performa terbaik di antara ketiga model yang diuji. Model ini mencapai accuracy tertinggi (0.93) serta ROC-AUC sebesar 0.92, yang menandakan kemampuan diskriminatif yang sangat baik antara kelas Default dan No Default. Precision untuk kelas Default mencapai 0.96, sementara recall meningkat menjadi 0.71, menghasilkan F1-score tertinggi (0.82) untuk kelas default.
