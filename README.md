@@ -384,7 +384,7 @@ not yet
 ---
 
 ## 📚 Resources
-- **Dataset**: [Google Drive – Flower Dataset](https://drive.google.com/file/d/1fyfnK8xgmEpNbaVqJ8lu3EurKSrYfDZ1/view?usp=sharing)
+- **Dataset**: [Google Drive – Credit Risk Dataset](https://drive.google.com/file/d/1fyfnK8xgmEpNbaVqJ8lu3EurKSrYfDZ1/view?usp=sharing)
 - **Model**: [Google Drive – Trained Models](https://drive.google.com/drive/folders/1gsIc70cST92o2unsZykUbAfX7zN-ZT-F?usp=sharing)
 - **Google Colab Hasil Training**: [Colab Notebook](https://colab.research.google.com/drive/1fQtxsq8T7yujCDGG2upZ1F2WedA7BErj?usp=sharing)
 
