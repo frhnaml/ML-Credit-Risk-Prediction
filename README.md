@@ -1,52 +1,29 @@
-## 📑 Table of Contents
-
-1. [Project Overview](#project-overview)
-   - [Deskripsi Proyek](#deskripsi-proyek)
-   - [Tujuan Proyek](#tujuan-proyek)
-
-2. [Struktur Repository](#struktur-repository)
-
-3. [Dataset](#dataset)
-   - [Daftar Fitur](#daftar-fitur)
-   - [Definisi Target](#definisi-target)
-
-4. [Preprocessing Data](#preprocessing-data)
-   - [Pemisahan Data](#pemisahan-data)
-   - [Preprocessing MLP](#preprocessing-mlp)
-   - [Preprocessing TabNet](#preprocessing-tabnet)
-   - [Preprocessing FT-Transformer](#preprocessing-ft-transformer)
-
-5. [Model yang Digunakan](#model-yang-digunakan)
-   - [Multi-Layer Perceptron (MLP)](#multi-layer-perceptron-mlp)
-     - [Arsitektur Model](#arsitektur-model)
-   - [TabNet](#tabnet)
-     - [Konfigurasi Model](#konfigurasi-model)
-     - [Training Strategy](#training-strategy)
-   - [FT-Transformer](#ft-transformer)
-     - [Representasi Data](#representasi-data)
-     - [Arsitektur Model](#arsitektur-model-1)
-     - [Konfigurasi Training](#konfigurasi-training)
-
-6. [Hasil Evaluasi Model (Test Set)](#hasil-evaluasi-model-test-set)
-   - [Evaluasi MLP](#mlp-multi-layer-perceptron)
-   - [Evaluasi TabNet](#tabnet-1)
-   - [Evaluasi FT-Transformer](#ft-transformer-1)
-
-7. [Analisis Perbandingan Model](#analisis-perbandingan-model)
-
-8. [Panduan Menjalankan Sistem Website Secara Lokal](#panduan-menjalankan-sistem-website-secara-lokal)
-   - [Prasyarat](#prasyarat)
-   - [Langkah Instalasi dan Menjalankan Aplikasi](#langkah-instalasi-dan-menjalankan-aplikasi)
-   - [Cara Penggunaan](#cara-penggunaan)
-
-9. [Dashboard Streamlit Prediksi](#dasboard-streamlit-prediksi)
-
-10. [Link Live Demo](#link-live-demo)
-
-11. [Resources](#resources)
 
 
-# Sistem Prediksi Risiko Kredit Nasabah Menggunakan Neural Network dan Transfer Learning pada Data Tabular
+
+<h1 align="center">📊 Sistem Prediksi Risiko Kredit Nasabah Menggunakan Neural Network dan Transfer Learning pada Data Tabular</h1>
+
+---
+
+<h1 align="center">📑 Table of Contents</h1>
+
+1. [Project Overview](#-project-overview)
+   - [Deskripsi Proyek](#-deskripsi-proyek)
+   - [Tujuan Proyek](#-tujuan-proyek)
+2. [Struktur Repository](#-struktur-repository)
+3. [Dataset](#-dataset)
+   - [Daftar Fitur](#-daftar-fitur)
+   - [Definisi Target](#-definisi-target)
+4. [Preprocessing Data](#-preprocessing-data)
+5. [Model yang Digunakan](#-model-yang-digunakan)
+6. [Hasil Evaluasi Model](#-hasil-evaluasi-model-test-set)
+7. [Analisis Perbandingan Model](#-analisis-perbandingan-model)
+8. [Panduan Menjalankan Sistem Website](#-panduan-menjalankan-sistem-website-secara-lokal)
+9. [Dashboard Streamlit Prediksi](#-dashboard-streamlit-prediksi)
+10. [Link Live Demo](#-link-live-demo)
+11. [Resources](#-resources)
+
+---
 
 ## Deskripsi Proyek
 
@@ -67,13 +44,17 @@ Proyek ini mencakup seluruh tahapan pipeline Machine Learning, mulai dari prepro
 
 Sebagai tahap akhir, seluruh model yang telah dilatih diintegrasikan ke dalam aplikasi web berbasis Streamlit, sehingga pengguna dapat melakukan prediksi risiko kredit secara interaktif melalui antarmuka website yang dijalankan secara lokal.
 
-## Tujuan proyek:
+---
+
+## 🎯 Tujuan proyek:
 
 - Membangun pipeline *training → evaluasi* secara end-to-end
 - Membandingkan performa beberapa model *Machine Learning*
 - Menyajikan hasil prediksi dalam bentuk sistem website yang dapat dijalankan secara lokal
 
-## Struktur Repository
+---
+
+## 🗂️ Struktur Repository
 ```
 UAP/
 │
@@ -111,8 +92,9 @@ UAP/
 │       └── utils/
 │           ├── load_css.py
 ```
+---
 
-## Dataset
+## 📊 Dataset
 
 Dataset berhasil dimuat dengan detail sebagai berikut:
 
@@ -143,7 +125,9 @@ Definisi Target:
 0 → Resiko Rendah (Lancar Bayar)
 1 → Resiko Tinggi (Gagal Bayar)
 
-## Preprocessing Data
+---
+
+## 🧪 Preprocessing Data
 
 ### Pemisahan Data
 
@@ -168,10 +152,12 @@ Tanpa scaling numerik karena TabNet mampu menangani skala fitur secara internal.
 - Categorical: Label Encoding
 Encoding disimpan untuk keperluan inference
 
-## Model yang Digunakan
+---
+
+## 🧠 Model yang Digunakan
 Proyek ini menggunakan tiga model Machine Learning yang diimplementasikan dan dilatih secara terpisah, dengan tujuan membandingkan performa model baseline dan model deep learning lanjutan pada data tabular.
 
-### Multi-Layer Perceptron (MLP)
+### 🔹 Multi-Layer Perceptron (MLP)
 Model Multi-Layer Perceptron (MLP) digunakan sebagai baseline deep learning untuk data tabular.
 Model ini diimplementasikan menggunakan TensorFlow/Keras dengan arsitektur fully-connected neural network.
 
@@ -202,7 +188,7 @@ Untuk mencegah overfitting, digunakan:
 - EarlyStopping dengan monitoring val_loss (patience = 5)
 - ModelCheckpoint untuk menyimpan model terbaik berdasarkan val_auc
 
-### TabNet
+### 🟢 TabNet
 Model TabNet digunakan sebagai model deep learning yang secara khusus dirancang untuk data tabular.
 TabNet memanfaatkan mekanisme sequential attention untuk melakukan feature selection secara eksplisit pada setiap decision step.
 
@@ -229,7 +215,7 @@ TabNet dipilih karena kemampuannya:
 - Memberikan performa yang baik tanpa scaling numerik eksplisit
 - Memiliki interpretabilitas melalui attention mask
 
-### FT-Transformer
+### 🟣 FT-Transformer
 Model FT-Transformer merupakan model berbasis Transformer architecture yang dirancang khusus untuk data tabular. Model ini digunakan sebagai model paling kompleks dalam proyek ini.
 
 #### Representasi Data
@@ -259,7 +245,9 @@ FT-Transformer dipilih karena kemampuannya:
 - Memberikan performa tinggi pada data tabular kompleks
 - Menjadi pembanding utama terhadap MLP dan TabNet
 
-## Hasil Evaluasi Model (test set)
+---
+
+## 📈 Hasil Evaluasi Model (test set)
 ### MLP (Multi-Layer Perceptron)
 Accuracy: 0.91
 | Class | Precision | Recall | F1-Score |
@@ -268,9 +256,12 @@ Accuracy: 0.91
 |   1   |   0.91    |  0.67  |   0.77   |
 
 
-Plot Evaluasi:
-![Contoh Prediksi6](src/project-uas/assets/train&val-acc-mlp.png)
+Training Curves:
+| Accuracy Curves| Loss Curve | 
+|----------------|------------|
+|![Contoh Prediksi6](src/project-uas/assets/train&val-acc-mlp.png) |
 ![MLP Loss Curve](src/project-uas/assets/train&val-loss-mlp.png)
+
 
 #### Analisis Evaluasi Model MLP
 Model MLP menunjukkan performa yang cukup solid dengan accuracy sebesar 0.91. Model ini sangat baik dalam mengklasifikasikan kelas No Default (kelas 0), tercermin dari nilai recall yang tinggi (0.98), artinya hampir seluruh peminjam yang tidak gagal bayar berhasil terdeteksi dengan benar. Namun, performa pada kelas Default(kelas 1) masih terbatas, khususnya pada recall (0.67), yang mengindikasikan bahwa sebagian kasus gagal bayar masih salah diklasifikasikan sebagai No Default (lancar bayar). 
@@ -282,9 +273,12 @@ Accuracy: 0.92
 |   0   |   0.92    |  0.99  |   0.95   |
 |   1   |   0.95    |  0.68  |   0.79   |
 
-Plot Evaluasi:
-![Contoh Prediksi6](src/project-uas/assets/train&val-acc-tabnet.png)
+Training Curves:
+| Accuracy Curves| Loss Curve | 
+|----------------|------------|
+|![Contoh Prediksi6](src/project-uas/assets/train&val-acc-tabnet.png) | 
 ![Contoh Prediksi6](src/project-uas/assets/train&val-loss-tabnet.png)
+
 <!-- ![TabNet Accuracy Curve](src/project-uas/assets/train&val-acc-tabnet.png)
 ![TabNet Loss Curve](src/project-uas/assets/train&val-loss-tabnet.png) -->
 
@@ -300,14 +294,18 @@ ROC-AUC: 0.92
 |   0   |   0.92    |  0.99  |   0.95   |
 |   1   |   0.96    |  0.71  |   0.82   |
 
-Plot Evaluasi:
-![FT-Transformer Accuracy Curve](src/project-uas/assets/train&val-acc-fttransformer.png)
+Training Curves:
+| Accuracy Curves| Loss Curve | 
+|----------------|------------|
+|![FT-Transformer Accuracy Curve](src/project-uas/assets/train&val-acc-fttransformer.png) |
 ![FT-Transformer Loss Curve](src/project-uas/assets/train&val-loss-fttransformer.png)
 
 #### Analisis Evaluasi Model FT-Transformer
 FT-Transformer merupakan model dengan performa terbaik di antara ketiga model yang diuji. Model ini mencapai accuracy tertinggi (0.93) serta ROC-AUC sebesar 0.92, yang menandakan kemampuan diskriminatif yang sangat baik antara kelas Default dan No Default. Precision untuk kelas Default mencapai 0.96, sementara recall meningkat menjadi 0.71, menghasilkan F1-score tertinggi (0.82) untuk kelas default.
 
-## Analisis Perbandingan Model
+---
+
+## 📊 Analisis Perbandingan Model
 
 | Model | Accuracy | Analisis |
 |------|----------|----------|
@@ -315,8 +313,9 @@ FT-Transformer merupakan model dengan performa terbaik di antara ketiga model ya
 | **TabNet** | **0.92** | TabNet memanfaatkan mekanisme attention untuk melakukan feature selection secara dinamis selama proses training. Model ini menunjukkan peningkatan performa dibandingkan MLP, terutama pada precision kelas minoritas (0.95) dan F1-score (0.79). Recall Class 1 masih terbatas (0.68), tetapi TabNet menawarkan keunggulan tambahan berupa interpretabilitas fitur, yang penting untuk analisis risiko kredit dan pengambilan keputusan berbasis model. |
 | **FT-Transformer** | **0.93** | FT-Transformer memberikan performa terbaik di antara ketiga model dengan accuracy tertinggi (0.93) dan ROC-AUC sebesar 0.92. Model ini mampu menangkap interaksi kompleks antar fitur tabular, tercermin dari precision tinggi pada kelas minoritas (0.96) dan peningkatan recall Class 1 (0.71) dibandingkan model lain. Meskipun memerlukan biaya komputasi dan kompleksitas training yang lebih tinggi, FT-Transformer menawarkan generalisasi yang lebih baik dan performa paling seimbang untuk kasus klasifikasi risiko kredit. |
 
+---
 
-## Panduan Menjalankan Sistem Website Secara Lokal
+## 🚀 Panduan Menjalankan Sistem Website Secara Lokal
 Aplikasi web ini menggunakan Streamlit sebagai antarmuka interaktif untuk melakukan prediksi risiko kredit berdasarkan data input pengguna. Sistem akan memproses data dan menampilkan hasil prediksi menggunakan model Machine Learning terbaik yang telah dilatih.
 
 ### Prasyarat
@@ -371,18 +370,24 @@ Sistem akan menampilkan:
 - Probabilitas risiko
 - Interpretasi hasil prediksi
 
-## Dasboard Streamlit Prediksi
+---
+
+## 🖥️ Dasboard Prediksi
 ![Contoh Prediksi1](src/project-uas/assets/dasboard-prediction.png)
 ![Contoh Prediksi2](src/project-uas/assets/dasboard-prediction2.png)
 ![Contoh Prediksi3](src/project-uas/assets/dasboard-prediction3.png)
 ![Contoh Prediksi4](src/project-uas/assets/dasboard-prediction4.png)
 ![Contoh Prediksi5](src/project-uas/assets/dasboard-prediction5.png)
 
-## Link Live Demo
+---
 
+## 🔗 Link Live Demo
+not yet
 
-## Resources
-- **Dataset**: [Google Drive – Flower Dataset](https://drive.google.com/FILE_ID_DATASET)
-- **Model**: [Google Drive – Trained Models](https://drive.google.com/FILE_ID_MODEL)
+---
+
+## 📚 Resources
+- **Dataset**: [Google Drive – Flower Dataset](https://drive.google.com/file/d/1fyfnK8xgmEpNbaVqJ8lu3EurKSrYfDZ1/view?usp=sharing)
+- **Model**: [Google Drive – Trained Models](https://drive.google.com/drive/folders/1gsIc70cST92o2unsZykUbAfX7zN-ZT-F?usp=sharing)
 - **Google Colab Hasil Training**: [Colab Notebook](https://colab.research.google.com/drive/1fQtxsq8T7yujCDGG2upZ1F2WedA7BErj?usp=sharing)
 
