@@ -1,3 +1,51 @@
+## 📑 Table of Contents
+
+1. [Project Overview](#project-overview)
+   - [Deskripsi Proyek](#deskripsi-proyek)
+   - [Tujuan Proyek](#tujuan-proyek)
+
+2. [Struktur Repository](#struktur-repository)
+
+3. [Dataset](#dataset)
+   - [Daftar Fitur](#daftar-fitur)
+   - [Definisi Target](#definisi-target)
+
+4. [Preprocessing Data](#preprocessing-data)
+   - [Pemisahan Data](#pemisahan-data)
+   - [Preprocessing MLP](#preprocessing-mlp)
+   - [Preprocessing TabNet](#preprocessing-tabnet)
+   - [Preprocessing FT-Transformer](#preprocessing-ft-transformer)
+
+5. [Model yang Digunakan](#model-yang-digunakan)
+   - [Multi-Layer Perceptron (MLP)](#multi-layer-perceptron-mlp)
+     - [Arsitektur Model](#arsitektur-model)
+   - [TabNet](#tabnet)
+     - [Konfigurasi Model](#konfigurasi-model)
+     - [Training Strategy](#training-strategy)
+   - [FT-Transformer](#ft-transformer)
+     - [Representasi Data](#representasi-data)
+     - [Arsitektur Model](#arsitektur-model-1)
+     - [Konfigurasi Training](#konfigurasi-training)
+
+6. [Hasil Evaluasi Model (Test Set)](#hasil-evaluasi-model-test-set)
+   - [Evaluasi MLP](#mlp-multi-layer-perceptron)
+   - [Evaluasi TabNet](#tabnet-1)
+   - [Evaluasi FT-Transformer](#ft-transformer-1)
+
+7. [Analisis Perbandingan Model](#analisis-perbandingan-model)
+
+8. [Panduan Menjalankan Sistem Website Secara Lokal](#panduan-menjalankan-sistem-website-secara-lokal)
+   - [Prasyarat](#prasyarat)
+   - [Langkah Instalasi dan Menjalankan Aplikasi](#langkah-instalasi-dan-menjalankan-aplikasi)
+   - [Cara Penggunaan](#cara-penggunaan)
+
+9. [Dashboard Streamlit Prediksi](#dasboard-streamlit-prediksi)
+
+10. [Link Live Demo](#link-live-demo)
+
+11. [Resources](#resources)
+
+
 # Sistem Prediksi Risiko Kredit Nasabah Menggunakan Neural Network dan Transfer Learning pada Data Tabular
 
 ## Deskripsi Proyek
@@ -259,6 +307,15 @@ Plot Evaluasi:
 #### Analisis Evaluasi Model FT-Transformer
 FT-Transformer merupakan model dengan performa terbaik di antara ketiga model yang diuji. Model ini mencapai accuracy tertinggi (0.93) serta ROC-AUC sebesar 0.92, yang menandakan kemampuan diskriminatif yang sangat baik antara kelas Default dan No Default. Precision untuk kelas Default mencapai 0.96, sementara recall meningkat menjadi 0.71, menghasilkan F1-score tertinggi (0.82) untuk kelas default.
 
+## Analisis Perbandingan Model
+
+| Model | Accuracy | Analisis |
+|------|----------|----------|
+| **MLP (Multi-Layer Perceptron)** | **0.91** | MLP menunjukkan performa yang stabil dan efisien sebagai baseline deep learning pada data tabular. Model ini memiliki keseimbangan precision dan recall yang baik untuk kelas mayoritas (Class 0), dengan F1-score tinggi (0.95). Namun, recall pada kelas minoritas (Class 1) masih relatif lebih rendah (0.67), yang mengindikasikan keterbatasan dalam mendeteksi kasus berisiko tinggi. Secara keseluruhan, MLP unggul dari sisi kesederhanaan, kecepatan training, dan efisiensi komputasi. |
+| **TabNet** | **0.92** | TabNet memanfaatkan mekanisme attention untuk melakukan feature selection secara dinamis selama proses training. Model ini menunjukkan peningkatan performa dibandingkan MLP, terutama pada precision kelas minoritas (0.95) dan F1-score (0.79). Recall Class 1 masih terbatas (0.68), tetapi TabNet menawarkan keunggulan tambahan berupa interpretabilitas fitur, yang penting untuk analisis risiko kredit dan pengambilan keputusan berbasis model. |
+| **FT-Transformer** | **0.93** | FT-Transformer memberikan performa terbaik di antara ketiga model dengan accuracy tertinggi (0.93) dan ROC-AUC sebesar 0.92. Model ini mampu menangkap interaksi kompleks antar fitur tabular, tercermin dari precision tinggi pada kelas minoritas (0.96) dan peningkatan recall Class 1 (0.71) dibandingkan model lain. Meskipun memerlukan biaya komputasi dan kompleksitas training yang lebih tinggi, FT-Transformer menawarkan generalisasi yang lebih baik dan performa paling seimbang untuk kasus klasifikasi risiko kredit. |
+
+
 ## Panduan Menjalankan Sistem Website Secara Lokal
 Aplikasi web ini menggunakan Streamlit sebagai antarmuka interaktif untuk melakukan prediksi risiko kredit berdasarkan data input pengguna. Sistem akan memproses data dan menampilkan hasil prediksi menggunakan model Machine Learning terbaik yang telah dilatih.
 
@@ -275,7 +332,10 @@ Pastikan lingkungan Anda telah memenuhi persyaratan berikut:
 ```
 Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py -UseBasicParsing | python -
 ```
-- Setelah instalasi, output akan menampilkan path seperti - C:\Users\<username>\AppData\Roaming\Python\Scripts.
+- Setelah instalasi, output akan menampilkan path seperti 
+```
+C:\Users\<username>\AppData\Roaming\Python\Scripts.
+```
 - Copy path tersebut.
 - Buka Advanced System Settings > Environment Variables > User Variables > New, paste path, lalu restart terminal/VS Code.
 
@@ -285,11 +345,20 @@ Invoke-WebRequest -Uri https://pdm-project.org/install-pdm.py -UseBasicParsing |
 
 3. Install Dependencies untuk Streamlit App:
 - Pindah ke folder: cd UAP/project-uas.
-- Aktifkan virtual environment: .venv\Scripts\Activate.ps1 (untuk PowerShell; gunakan source .venv/bin activate untuk bash/Linux/Mac).
-- Jalankan: pip install -r requirements.txt (ini akan install Streamlit, TensorFlow, dll.).
+- Aktifkan virtual environment: 
+```
+.venv\Scripts\Activate.ps1 (untuk PowerShell; gunakan source .venv/bin activate untuk bash/Linux/Mac).
+```
+- Jalankan: 
+```
+pip install -r requirements.txt (ini akan install Streamlit, TensorFlow, dll.).
+```
 
 4. Jalankan Aplikasi
-- Di folder UAP/streamlit-app, jalankan: streamlit run app.py
+- Di folder UAP/streamlit-app, jalankan: 
+```
+streamlit run app.py
+```
 - Tunggu hingga browser terbuka otomatis di http://localhost:... (atau buka manual).
 
 5. Cara Penggunaan
@@ -308,4 +377,12 @@ Sistem akan menampilkan:
 ![Contoh Prediksi3](src/project-uas/assets/dasboard-prediction3.png)
 ![Contoh Prediksi4](src/project-uas/assets/dasboard-prediction4.png)
 ![Contoh Prediksi5](src/project-uas/assets/dasboard-prediction5.png)
+
+## Link Live Demo
+
+
+## Resources
+- **Dataset**: [Google Drive – Flower Dataset](https://drive.google.com/FILE_ID_DATASET)
+- **Model**: [Google Drive – Trained Models](https://drive.google.com/FILE_ID_MODEL)
+- **Google Colab Hasil Training**: [Colab Notebook](https://colab.research.google.com/drive/1fQtxsq8T7yujCDGG2upZ1F2WedA7BErj?usp=sharing)
 
